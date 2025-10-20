@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Malaysia EV & Economic Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="script.js" defer></script>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center all content horizontally */
+    }
+    /* Style for the container of the two bottom charts */
+    .chart-row {
+      display: flex; /* Arrange children side-by-side */
+      gap: 24px; /* Add space between the two charts */
+      width: 100%;
+      max-width: 1200px;
+      justify-content: center;
+    }
+    /* Common style for all chart containers */
+    .chart-container {
+      margin: 24px 0;
+      background: #111;
+      border-radius: 12px;
+      padding: 10px;
+      box-sizing: border-box; /* Ensures padding is included in width */
+    }
+    /* Give the smaller charts a flexible width */
+    .chart-row .chart-container {
+      flex: 1; /* Each chart takes up equal space */
+    }
+  </style>
+</head>
+<body>
+  <div id="vis" class="chart-container"></div>
+
+  <div class="chart-row">
+    <div id="gdp_chart" class="chart-container"></div>
+    <div id="population_chart" class="chart-container"></div>
+  </div>
+</body>
+</html>
