@@ -26,7 +26,7 @@
     }
   },
   "data": {
-    "url": "nrg_player_stats_radar_v2.csv"
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/nrg_player_stats_radar_v2.csv"
   },
   "facet": {
     "row": {
