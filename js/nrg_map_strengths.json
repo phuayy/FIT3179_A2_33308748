@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+  "background": "#111823",
+  "config": {
+    "axis": {
+      "domainColor": "#555555",
+      "gridColor": "#555555",
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "title": {
+      "anchor": "middle",
+      "color": "white"
+    },
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400,
+      "stroke": null
+    }
+  },
+  "data": {
+    "url": "nrg_map_performance_vs_popularity.csv"
+  },
+  "encoding": {
+    "tooltip": [
+      {
+        "field": "map_name",
+        "title": "Map",
+        "type": "nominal"
+      },
+      {
+        "field": "times_played",
+        "title": "Tournament Plays",
+        "type": "quantitative"
+      },
+      {
+        "field": "WinCount",
+        "title": "NRG Wins",
+        "type": "quantitative"
+      }
+    ],
+    "x": {
+      "field": "times_played",
+      "scale": {
+        "zero": false
+      },
+      "title": "Tournament Play Count (Popularity)",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "WinCount",
+      "title": "NRG Map Win Count",
+      "type": "quantitative"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "color": "#FF4655",
+        "filled": true,
+        "size": 100,
+        "type": "point"
+      }
+    },
+    {
+      "encoding": {
+        "text": {
+          "field": "map_name",
+          "type": "nominal"
+        }
+      },
+      "mark": {
+        "color": "white",
+        "dy": -10,
+        "type": "text"
+      }
+    }
+  ],
+  "title": "NRG Map Strength vs. Tournament Popularity"
+}

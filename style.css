@@ -1,8 +1,39 @@
-#Choropleth_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+/* This container makes the columns side-by-side */
+.text-container {
+    display: flex;
+    flex-direction: row; /* This is the key property */
+    gap: 32px; /* Space between the two columns */
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+/* This tells each column to take up 50% of the space */
+.text-column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* This styles the H2 titles you added */
+.text-column h2 {
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #FF4655; /* Valorant-red accent */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.2em;
+}
+
+/* This styles the paragraphs */
+.text-column p {
+    margin: 0 0 16px 0; /* Adds space between your paragraphs */
+    line-height: 1.6;
+    color: #e0e0e0;
+    max-width: 60ch; /* Keeps lines short for readability */
+}
+
+/* Removes the bottom margin from the last paragraph */
+.text-column p:last-child {
+    margin-bottom: 0;
 }

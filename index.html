@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Malaysia EV & Economic Dashboard</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -45,13 +46,66 @@
 </head>
 <body>
   <div id="Choropleth_map" class="chart-container"></div>
+  <div class="text-container">
+    
+    <div class="text-column">
+      <h2>Player Combat Profile</h2>
+      <p>
+        <strong>ACS (Average Combat Score):</strong> The best single measure of
+        a player's combat impact, factoring in damage, kills, and more.
+      </p>
+      <p>
+        <strong>KPR (Kills Per Round):</strong> A pure metric for a player's
+        fragging power, normalized across all rounds played.
+      </p>
+    </div>
+    
+    <div class="text-column">
+      <h2>Tactical & Consistency Profile</h2>
+      <p>
+        <strong>APR (Assists Per Round):</strong> Shows a player's contribution
+        to team play, often through good utility usage.
+      </p><p>
+        <strong>KAST (%):</strong> A key consistency stat. The percentage of rounds
+        a player had a Kill, Assist, Survived, or was Traded.
+      </p><p>
+        <strong>HS% (Headshot %):</strong> The most direct measure of a player's
+        mechanical skill and aiming precision.
+      </p>
+    </div>
+
+  </div>
   <div class="chart-row">
     
-    <div id="s0m_radar" class="chart-container"></div>
-    <div id="Ethan_radar" class="chart-container"></div>
-    <div id="brawk_radar" class="chart-container"></div>
-    <div id="skuba_radar" class="chart-container"></div>
-    <div id="mada_radar" class="chart-container"></div>
+    <!-- s0m Chart with Title -->
+    <div class="player-chart-wrapper">
+      <h3>s0m</h3>
+      <div id="s0m_radar" class="chart-container"></div>
+    </div>
+    
+    <!-- Ethan Chart with Title -->
+    <div class="player-chart-wrapper">
+      <h3>Ethan</h3>
+      <div id="Ethan_radar" class="chart-container"></div>
+    </div>
+    
+    <!-- brawk Chart with Title -->
+    <div class="player-chart-wrapper">
+      <h3>brawk</h3>
+      <div id="brawk_radar" class="chart-container"></div>
+    </div>
+    
+    <!-- skuba Chart with Title -->
+    <div class="player-chart-wrapper">
+      <h3>skuba</h3>
+      <div id="skuba_radar" class="chart-container"></div>
+    </div>
+    
+    <!-- mada Chart with Title -->
+    <div class="player-chart-wrapper">
+      <h3>mada</h3>
+      <div id="mada_radar" class="chart-container"></div>
+    </div>
     
   </div>
 </body>
