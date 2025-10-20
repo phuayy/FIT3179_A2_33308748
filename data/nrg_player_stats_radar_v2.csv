@@ -1,26 +1,26 @@
 player,stat_name,normalized_value,original_value
-s0m,acs,87.80053428317007,197.2
-Ethan,acs,78.27248441674088,175.8
-brawk,acs,100.0,224.6
-skuba,acs,84.6393588601959,190.1
-mada,acs,95.36954585930543,214.2
-s0m,kpr,90.66666666666667,0.68
-Ethan,kpr,80.0,0.6
-brawk,kpr,97.33333333333333,0.73
-skuba,kpr,94.66666666666667,0.71
-mada,kpr,100.0,0.75
-s0m,apr,88.09523809523809,0.37
-Ethan,apr,100.0,0.42
-brawk,apr,80.95238095238096,0.34
-skuba,apr,59.523809523809526,0.25
-mada,apr,45.23809523809524,0.19
-s0m,kast,98.68421052631578,75.0
-Ethan,kast,94.73684210526315,72.0
-brawk,kast,100.0,76.0
-skuba,kast,100.0,76.0
-mada,kast,86.8421052631579,66.0
-s0m,hs_percent,80.0,24.0
-Ethan,hs_percent,80.0,24.0
-brawk,hs_percent,56.666666666666664,17.0
-skuba,hs_percent,100.0,30.0
-mada,hs_percent,86.66666666666667,26.0
+s0m,Average Combat Score,87.80053428,197.2
+Ethan,Average Combat Score,78.27248442,175.8
+brawk,Average Combat Score,100,224.6
+skuba,Average Combat Score,84.63935886,190.1
+mada,Average Combat Score,95.36954586,214.2
+s0m,Kills Per Round,90.66666667,0.68
+Ethan,Kills Per Round,80,0.6
+brawk,Kills Per Round,97.33333333,0.73
+skuba,Kills Per Round,94.66666667,0.71
+mada,Kills Per Round,100,0.75
+s0m,Assists Per Round,88.0952381,0.37
+Ethan,Assists Per Round,100,0.42
+brawk,Assists Per Round,80.95238095,0.34
+skuba,Assists Per Round,59.52380952,0.25
+mada,Assists Per Round,45.23809524,0.19
+s0m,KAST,98.68421053,75
+Ethan,KAST,94.73684211,72
+brawk,KAST,100,76
+skuba,KAST,100,76
+mada,KAST,86.84210526,66
+s0m,Headshot %,80,24
+Ethan,Headshot %,80,24
+brawk,Headshot %,56.66666667,17
+skuba,Headshot %,100,30
+mada,Headshot %,86.66666667,26
