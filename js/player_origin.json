@@ -82,7 +82,7 @@
     },
     {
       "data": {
-        "url": "output (1).json",
+        "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/output%20(1).json",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
       "mark": {
