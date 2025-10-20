@@ -1,0 +1,149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+  "background": "#111823",
+  "config": {
+    "axis": {
+      "domainColor": "#555555",
+      "gridColor": "#555555",
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "header": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "title": {
+      "anchor": "middle",
+      "color": "white"
+    },
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400
+    }
+  },
+  "data": {
+    "url": "nrg_player_stats_radar_v2.csv"
+  },
+  "facet": {
+    "row": {
+      "field": "player",
+      "header": {
+        "labelOrient": "top",
+        "title": null,
+        "titleOrient": "top"
+      },
+      "type": "nominal"
+    }
+  },
+  "padding": 20,
+  "spec": {
+    "layer": [
+      {
+        "encoding": {
+          "color": {
+            "field": "player",
+            "title": "Player",
+            "type": "nominal"
+          },
+          "order": {
+            "field": "stat_name",
+            "type": "nominal"
+          },
+          "radius": {
+            "field": "normalized_value",
+            "scale": {
+              "domain": [
+                0,
+                100
+              ]
+            },
+            "type": "quantitative"
+          },
+          "theta": {
+            "field": "stat_name",
+            "sort": [
+              "acs",
+              "kpr",
+              "apr",
+              "kast",
+              "hs_percent"
+            ],
+            "stack": true,
+            "type": "nominal"
+          },
+          "tooltip": [
+            {
+              "field": "player",
+              "type": "nominal"
+            },
+            {
+              "field": "stat_name",
+              "title": "Statistic",
+              "type": "nominal"
+            },
+            {
+              "field": "original_value",
+              "format": ".2f",
+              "title": "Value",
+              "type": "quantitative"
+            }
+          ]
+        },
+        "mark": {
+          "opacity": 0.8,
+          "point": true,
+          "type": "line"
+        },
+        "title": "Player Performance Profile (v2)"
+      },
+      {
+        "encoding": {
+          "color": {
+            "field": "player",
+            "title": "Player",
+            "type": "nominal"
+          },
+          "radius": {
+            "field": "normalized_value",
+            "type": "quantitative"
+          },
+          "theta": {
+            "field": "stat_name",
+            "sort": [
+              "acs",
+              "kpr",
+              "apr",
+              "kast",
+              "hs_percent"
+            ],
+            "stack": true,
+            "type": "nominal"
+          },
+          "tooltip": [
+            {
+              "field": "player",
+              "type": "nominal"
+            },
+            {
+              "field": "stat_name",
+              "title": "Statistic",
+              "type": "nominal"
+            },
+            {
+              "field": "original_value",
+              "format": ".2f",
+              "title": "Value",
+              "type": "quantitative"
+            }
+          ]
+        },
+        "mark": "circle",
+        "title": "Player Performance Profile (v2)"
+      }
+    ]
+  }
+}
