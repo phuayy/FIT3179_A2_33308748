@@ -12,7 +12,7 @@
   "layer": [
     {
       "data": {
-        "url": "output (1).json",
+        "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/output%20(1).json",
         "format": {"type": "topojson", "feature": "custom.geo"}
       },
       "mark": {
@@ -24,14 +24,14 @@
     },
     {
       "data": {
-        "url": "output (1).json",
+        "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/output%20(1).json",
         "format": {"type": "topojson", "feature": "custom.geo"}
       },
       "transform": [
         {
           "lookup": "properties.name",
           "from": {
-            "data": {"url": "valorant_player_percentages.csv"},
+            "data": {"url": "data/valorant_player_percentages.csv"},
             "key": "CountryPrimary",
             "fields": ["Players", "Percentage"]
           }
