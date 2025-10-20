@@ -31,7 +31,7 @@
         {
           "lookup": "properties.name",
           "from": {
-            "data": {"url": "data/valorant_player_percentages.csv"},
+            "data": {"url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/valorant_player_percentages.csv"},
             "key": "CountryPrimary",
             "fields": ["Players", "Percentage"]
           }
