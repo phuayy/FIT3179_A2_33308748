@@ -10,15 +10,48 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* Title */
-.hero { padding: 4rem 1rem; text-align: center; }
+.hero { padding: 1.5rem 1rem 1.25rem; text-align: center; }
 .hero__title{
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 1.05;
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, ui-serif, serif;
   font-weight: 700;
   letter-spacing: -0.02em;
   color:#fff;
+}
+
+/* Styling for each text column */
+.intro-container {
+  display: flex;           /* Aligns the columns horizontally */
+  gap: 48px;               /* Increased gap for better spacing */
+  padding: 20px 0;         /* Space above/below the intro */
+  width: 100%;             /* Ensures container uses full width */
+}
+
+/* Styling for each text column */
+.intro-column {
+  flex: 1;                 /* Each column takes up equal space */
+  /* max-width has been removed to allow columns to fill the container */
+  color: #e2e8f0;
+  font-size: 1em;
+  line-height: 1.6;
+  text-align: justify;     /* Justifies the text for a balanced look */
+}
+
+.chart-title-wrapper {
+  text-align: center;      /* Centers the title */
+  padding: 40px 0 16px;    /* Adds space above and below */
+}
+
+.chart-title {
+  font-family: Georgia, "Times New Roman", Times, ui-serif, serif; /* Matches the main title font */
+  font-size: 2.5rem;       /* Sets a good size, smaller than the main title */
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 /* MAP — fills wrapper width and stays centered */
@@ -80,6 +113,16 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* Responsive stacking */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column; /* Stacks them vertically */
+    align-items: center;    /* Centers them */
+  }
+
+  .intro-column {
+    max-width: 90%;       /* Lets them use more of the screen */
+  }
+}
 @media (max-width: 900px){ .chart-row{ grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 700px){ .text-container{ flex-direction: column; } }
 @media (max-width: 600px){ .chart-row{ grid-template-columns: repeat(2, 1fr); } }
