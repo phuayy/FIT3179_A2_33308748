@@ -1,6 +1,14 @@
 var vg_evmap = "./js/player_origin.json";
 vegaEmbed("#Choropleth_map", vg_evmap, {actions: false}).then(function(res){}).catch(console.error);
 
+var vg_map_wins = "./js/nrg_map_wins_barchart.json"; 
+
+vegaEmbed("#map_wins_barchart", vg_map_wins, {actions: false})
+  .then(function(res){ 
+    console.log("Map Wins Bar Chart loaded successfully"); 
+  })
+  .catch(console.error);
+
 // Embed s0m's chart
 var vg_s0m_radar = "./js/s0m_player_radar.json";
 vegaEmbed("#s0m_radar", vg_s0m_radar, {actions: false})
@@ -30,3 +38,5 @@ var vg_mada_radar = "./js/mada_player_radar.json";
 vegaEmbed("#mada_radar", vg_mada_radar, {actions: false})
   .then(res => console.log("mada chart loaded"))
   .catch(console.error);
+
+

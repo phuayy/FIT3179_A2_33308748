@@ -1,0 +1,237 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
+  "background": "#111823",
+  "config": {
+    "axis": {
+      "gridColor": "#555555"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "title": {
+      "anchor": "middle",
+      "color": "white"
+    },
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 400,
+      "stroke": null
+    }
+  },
+  "data": {
+    "url": "team_avg_stats_melted.csv"
+  },
+  "layer": [
+    {
+      "encoding": {
+        "color": {
+          "field": "team",
+          "legend": {
+            "title": "Team"
+          },
+          "title": "Team",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "team",
+            "type": "nominal"
+          },
+          {
+            "field": "stat_name",
+            "type": "nominal"
+          },
+          {
+            "field": "stat_value",
+            "format": ".2f",
+            "title": "Value",
+            "type": "quantitative"
+          }
+        ],
+        "x": {
+          "axis": {
+            "labelColor": "white",
+            "labelExpr": "abs(datum.value)",
+            "titleColor": "white"
+          },
+          "field": "plot_value",
+          "title": "Average Stat Value",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": null,
+          "field": "stat_name",
+          "sort": [
+            "acs",
+            "adr",
+            "kpr",
+            "kd_ratio",
+            "kast",
+            "hs_percent"
+          ],
+          "title": "Statistic",
+          "type": "nominal"
+        }
+      },
+      "mark": "bar"
+    },
+    {
+      "encoding": {
+        "align": {
+          "condition": {
+            "test": "datum.plot_value < 0",
+            "value": "right"
+          },
+          "value": "left"
+        },
+        "color": {
+          "value": "white"
+        },
+        "dx": {
+          "condition": {
+            "test": "datum.plot_value < 0",
+            "value": -5
+          },
+          "value": 5
+        },
+        "text": {
+          "field": "stat_value",
+          "format": ".2f",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "plot_value",
+          "type": "quantitative"
+        },
+        "y": {
+          "axis": null,
+          "field": "stat_name",
+          "sort": [
+            "acs",
+            "adr",
+            "kpr",
+            "kd_ratio",
+            "kast",
+            "hs_percent"
+          ],
+          "type": "nominal"
+        }
+      },
+      "mark": {
+        "baseline": "middle",
+        "color": "white",
+        "type": "text"
+      }
+    },
+    {
+      "encoding": {
+        "color": {
+          "value": "white"
+        },
+        "text": {
+          "field": "stat_name",
+          "type": "nominal"
+        },
+        "y": {
+          "axis": null,
+          "field": "stat_name",
+          "sort": [
+            "acs",
+            "adr",
+            "kpr",
+            "kd_ratio",
+            "kast",
+            "hs_percent"
+          ],
+          "type": "nominal"
+        }
+      },
+      "mark": {
+        "align": "center",
+        "baseline": "middle",
+        "color": "white",
+        "dx": 0,
+        "fontWeight": "bold",
+        "type": "text"
+      },
+      "transform": [
+        {
+          "filter": "TeamASelection.team == datum.team"
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "TeamASelection",
+      "bind": {
+        "input": "select",
+        "name": "Select Team A: ",
+        "options": [
+          "DRG",
+          "DRX",
+          "EDG",
+          "FNC",
+          "FUT",
+          "G2",
+          "GEN",
+          "GX",
+          "KC",
+          "LEV",
+          "MIBR",
+          "NRG",
+          "PRX",
+          "RRQ",
+          "SEN",
+          "T1",
+          "TH",
+          "TL",
+          "VIT",
+          "XLG"
+        ]
+      },
+      "value": "NRG"
+    },
+    {
+      "name": "TeamBSelection",
+      "bind": {
+        "input": "select",
+        "name": "Select Team B: ",
+        "options": [
+          "DRG",
+          "DRX",
+          "EDG",
+          "FNC",
+          "FUT",
+          "G2",
+          "GEN",
+          "GX",
+          "KC",
+          "LEV",
+          "MIBR",
+          "NRG",
+          "PRX",
+          "RRQ",
+          "SEN",
+          "T1",
+          "TH",
+          "TL",
+          "VIT",
+          "XLG"
+        ]
+      },
+      "value": "FNATIC"
+    }
+  ],
+  "title": "Team vs. Team Stat Comparison",
+  "transform": [
+    {
+      "filter": "TeamASelection.team == datum.team || TeamBSelection.team == datum.team"
+    },
+    {
+      "calculate": "TeamASelection.team == datum.team ? -datum.stat_value : datum.stat_value",
+      "as": "plot_value"
+    }
+  ]
+}
