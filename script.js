@@ -39,4 +39,7 @@ vegaEmbed("#mada_radar", vg_mada_radar, {actions: false})
   .then(res => console.log("mada chart loaded"))
   .catch(console.error);
 
-
+var vg_tornado = "./js/nrg_vs_others_performance.json";
+vegaEmbed("#nrg_vs_others_performance", vg_tornado, {actions: false})
+  .then(res => console.log("Team comparison chart loaded"))
+  .catch(console.error);
