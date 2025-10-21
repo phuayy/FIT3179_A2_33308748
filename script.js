@@ -43,3 +43,48 @@ var vg_tornado = "./js/nrg_vs_others_performance.json";
 vegaEmbed("#nrg_vs_others_performance", vg_tornado, {actions: false})
   .then(res => console.log("Team comparison chart loaded"))
   .catch(console.error);
+
+var vg_radar = "./js/joined_radar_chart.json";
+vegaEmbed("#player_radar_chart_container", vg_radar, {actions: false})
+  .then(function(res) {
+    // This code runs *after* the chart is created
+    const controlsContainer = document.getElementById('radar-chart-controls');
+    const vegaBindings = document.querySelector('#player_radar_chart_container .vega-bindings');
+    
+    if (controlsContainer && vegaBindings) {
+      controlsContainer.appendChild(vegaBindings);
+      
+      // --- NEW: Apply Player Colors to Controls ---
+      try {
+        const view = res.view;
+        const colorScale = view.scale('color');
+        const players = colorScale.domain();
+        const colors = colorScale.range();
+        
+        // Create a map of player names to their colors
+        const colorMap = {};
+        players.forEach((player, i) => {
+          colorMap[player] = colors[i];
+        });
+
+        // Find all the label elements and apply the colors
+        const controlElements = controlsContainer.querySelectorAll('.vega-bind');
+        controlElements.forEach(element => {
+          const label = element.querySelector('label');
+          if (label) {
+            const playerName = label.textContent;
+            const playerColor = colorMap[playerName];
+            if (playerColor) {
+              // Use a CSS variable for cleaner styling
+              element.style.setProperty('--player-color', playerColor);
+            }
+          }
+        });
+      } catch (e) {
+        console.error("Could not apply colors to radar controls:", e);
+      }
+    }
+    
+    console.log("Combined radar chart loaded and controls moved successfully");
+  })
+  .catch(console.error);

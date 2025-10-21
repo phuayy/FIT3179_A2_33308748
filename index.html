@@ -83,6 +83,7 @@
             </div>
         </div>
 
+        <!-- Container for Tornado Chart and Textbox -->
         <div class="chart-title-wrapper">
             <h2 class="chart-title">Team Performance Breakdown</h2>
         </div>
@@ -96,45 +97,46 @@
 
             <!-- Column 2: The Textbox (30%) -->
             <div class="text-info-column">
-                <h3>Statistical Head-to-Head</h3>
+                <h3>Team Comparison</h3>
                 <p>This chart provides a direct comparison between NRG and the others.</p>
                 <p>By analyzing metrics like Average Combat Score (ACS) and Clutch Percentage, we can see a clearer picture of each team's strengths and potential weaknesses heading into a matchup.</p>
             </div>
         </div>
 
-        <div class="chart-row">
+        <div class="chart-title-wrapper">
+            <h2 class="chart-title">NRG Player Performance in VCT 2025</h2>
+        </div>
 
-            <!-- s0m Chart with Title -->
-            <div class="player-chart-wrapper">
-                <h3>s0m</h3>
-                <div id="s0m_radar" class="chart-container"></div>
+        <div class="chart-with-text-container">
+
+            <!-- Column 1: Chart and its controls (70%) -->
+            <div class="chart-and-controls-column">
+                <div class="radar-chart-layout">
+                    <!-- The Chart will be rendered here -->
+                    <div id="radar-chart-controls" class="radar-controls">
+                        <h3>Players</h3>
+                    </div>
+                    
+                    <div id="player_radar_chart_container" class="radar-chart-area"></div>
+            
+                    <!-- The Controls will be moved here by script.js -->
+                </div>
             </div>
 
-            <!-- Ethan Chart with Title -->
-            <div class="player-chart-wrapper">
-                <h3>Ethan</h3>
-                <div id="Ethan_radar" class="chart-container"></div>
-            </div>
-
-            <!-- brawk Chart with Title -->
-            <div class="player-chart-wrapper">
-                <h3>brawk</h3>
-                <div id="brawk_radar" class="chart-container"></div>
-            </div>
-
-            <!-- skuba Chart with Title -->
-            <div class="player-chart-wrapper">
-                <h3>skuba</h3>
-                <div id="skuba_radar" class="chart-container"></div>
-            </div>
-
-            <!-- mada Chart with Title -->
-            <div class="player-chart-wrapper">
-                <h3>mada</h3>
-                <div id="mada_radar" class="chart-container"></div>
+            <!-- Column 2: The Textbox (30%) -->
+            <div class="text-info-column">
+                <h3>Player Stat Profile</h3>
+                <p>
+                    This radar chart visualizes the performance of each NRG player across key statistical categories during the VCT Champions 2025.
+                </p>
+                <p>
+                    By selecting multiple players, you can directly compare their strengths and tactical playstyles. A larger footprint generally indicates a more dominant performance in those areas.
+                </p>
             </div>
 
         </div>
+
+        
     </div>
 </body>
 </html>

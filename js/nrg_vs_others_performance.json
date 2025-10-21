@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 320,
-  "background": "#111823",
+  "width": 450,
+  "height": 240,
+  "background": "transparent",
   "data": {
     "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/team_avg_stats.csv"
   },
@@ -42,11 +42,6 @@
       "as": "plot_value"
     }
   ],
-  "title": {
-    "text": "NRG vs. Team Stat Comparison",
-    "anchor": "middle",
-    "color": "white"
-  },
   "layer": [
     {
       "mark": "rule",
