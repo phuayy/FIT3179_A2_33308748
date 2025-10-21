@@ -1,39 +1,85 @@
-/* This container makes the columns side-by-side */
-.text-container {
-    display: flex;
-    flex-direction: row; /* This is the key property */
-    gap: 32px; /* Space between the two columns */
-    width: 100%;
-    max-width: 1400px;
-    padding: 20px 30px;
-    box-sizing: border-box;
+/* Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* 1000px centered page */
+.site-wrapper{
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 16px;
 }
 
-/* This tells each column to take up 50% of the space */
-.text-column {
-    flex: 1;
-    min-width: 0;
+/* Title */
+.hero { padding: 4rem 1rem; text-align: center; }
+.hero__title{
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1.05;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, ui-serif, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color:#fff;
 }
 
-/* This styles the H2 titles you added */
-.text-column h2 {
-    margin: 0 0 12px 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #FF4655; /* Valorant-red accent */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 1.2em;
+/* MAP — fills wrapper width and stays centered */
+#Choropleth_map{
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;  /* keeps proportions while width changes */
+  min-height: 360px;
+  margin: 0 auto 24px;
+  background: #111;      /* optional card look */
+  border-radius: 12px;
+  padding: 10px;
 }
 
-/* This styles the paragraphs */
-.text-column p {
-    margin: 0 0 16px 0; /* Adds space between your paragraphs */
-    line-height: 1.6;
-    color: #e0e0e0;
-    max-width: 60ch; /* Keeps lines short for readability */
+/* Two-column text */
+.text-container{
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  padding: 20px 0;
+}
+.text-column{ flex: 1; min-width: 0; }
+.text-column h2{
+  margin: 0 0 12px; padding-bottom: 8px;
+  border-bottom: 2px solid #FF4655;
+  text-transform: uppercase; letter-spacing: .5px; font-size: 1.2em;
+}
+.text-column p{ margin: 0 0 16px; line-height: 1.6; color: #e0e0e0; max-width: 60ch; }
+.text-column p:last-child{ margin-bottom: 0; }
+
+/* RADAR GRID — five across, wrap on small screens */
+.chart-row{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 40px;
+}
+.player-chart-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+.player-chart-wrapper h3{
+  margin: 0 0 8px;
+  color:#e5e7eb;
+  font-weight:700;
+  text-align:center;
 }
 
-/* Removes the bottom margin from the last paragraph */
-.text-column p:last-child {
-    margin-bottom: 0;
+/* radar chart square cards */
+.player-chart-wrapper .chart-container{
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* perfect square */
+  min-height: 160px;
+  background: #111;
+  border-radius: 12px;
+  padding: 10px;
 }
+
+/* Responsive stacking */
+@media (max-width: 900px){ .chart-row{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px){ .text-container{ flex-direction: column; } }
+@media (max-width: 600px){ .chart-row{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px){ .chart-row{ grid-template-columns: 1fr; } }

@@ -4,28 +4,17 @@
   "height": 320,
   "background": "#111823",
   "data": {
-    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/main/data/team_avg_stats.csv"
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/team_avg_stats.csv"
   },
   "params": [
     {
-      "name": "TeamASelection",
-      "value": "NRG",
-      "bind": {
-        "input": "select",
-        "name": "Select Team A: ",
-        "options": [
-          null, "BLG", "DRG", "DRX", "EDG", "FNC", "FUT", "G2", "GEN", "GX", "KC", "LEV", "MIBR", "NRG", "PRX", "RRQ", "SEN", "T1", "TH", "TL", "VIT", "XLG"
-        ]
-      }
-    },
-    {
       "name": "TeamBSelection",
-      "value": "FNC",
+      "value": "PRX",
       "bind": {
         "input": "select",
-        "name": "Select Team B: ",
+        "name": "Compare NRG with: ",
         "options": [
-          null, "BLG", "DRG", "DRX", "EDG", "FNC", "FUT", "G2", "GEN", "GX", "KC", "LEV", "MIBR", "NRG", "PRX", "RRQ", "SEN", "T1", "TH", "TL", "VIT", "XLG"
+          "BLG", "DRG", "DRX", "EDG", "FNC", "FUT", "G2", "GEN", "GX", "KC", "LEV", "MIBR", "PRX", "RRQ", "SEN", "T1", "TH", "TL", "VIT", "XLG"
         ]
       }
     }
@@ -38,22 +27,23 @@
     {
       "filter": {
         "field": "stat_name",
-        "oneOf": ["acs", "adr", "kast", "hs_percent", "kd_ratio", "kpr"]
+        "oneOf": ["acs", "adr", "kast", "hs_percent", "kills", "cl_percent"]
       }
     },
     {
-      "filter": "TeamASelection !== null && TeamBSelection !== null"
+      "calculate": "{'acs': 'Average Combat Score', 'adr': 'Average Damage/Round', 'kills': 'Average Kills', 'cl_percent': 'Clutch %', 'kast': 'KAST %', 'hs_percent': 'Headshot %'}[datum.stat_name]",
+      "as": "stat_label"
     },
     {
-      "filter": "datum.team === TeamASelection || datum.team === TeamBSelection"
+      "filter": "datum.team === 'NRG' || datum.team === TeamBSelection"
     },
     {
-      "calculate": "datum.team === TeamASelection ? -datum.stat_value_num : datum.stat_value_num",
+      "calculate": "datum.team === 'NRG' ? -datum.stat_value_num : datum.stat_value_num",
       "as": "plot_value"
     }
   ],
   "title": {
-    "text": "Team vs Team Stat Comparison",
+    "text": "NRG vs. Team Stat Comparison",
     "anchor": "middle",
     "color": "white"
   },
@@ -70,11 +60,16 @@
       "mark": "bar",
       "encoding": {
         "y": {
-          "field": "stat_name",
+          "field": "stat_label",
           "type": "nominal",
-          "axis": null,
+          "axis": {
+            "title": null,
+            "labelColor": "white",
+            "labelFontSize": 12,
+            "labelFontWeight": "bold"
+          },
           "scale": {
-            "domain": ["acs", "adr", "kpr", "kd_ratio", "kast", "hs_percent"]
+            "domain": ["Average Combat Score", "Average Damage/Round", "Average Kills", "Clutch %", "KAST %", "Headshot %"]
           }
         },
         "x": {
@@ -84,7 +79,7 @@
           "axis": {
             "labelColor": "white",
             "titleColor": "white",
-            "labelExpr": "format(abs(datum.value), '')"
+            "labelExpr": "format(abs(datum.value), '.0f')"
           }
         },
         "color": {
@@ -94,12 +89,12 @@
         },
         "tooltip": [
           {"field": "team", "type": "nominal", "title": "Team"},
-          {"field": "stat_name", "type": "nominal", "title": "Stat"},
+          {"field": "stat_label", "type": "nominal", "title": "Stat"},
           {
             "field": "stat_value_num",
             "type": "quantitative",
             "title": "Value",
-            "format": ".2f"
+            "format": ".0f"
           }
         ]
       }
@@ -112,17 +107,17 @@
       },
       "encoding": {
         "y": {
-          "field": "stat_name",
+          "field": "stat_label",
           "type": "nominal",
           "scale": {
-            "domain": ["acs", "adr", "kpr", "kd_ratio", "kast", "hs_percent"]
+            "domain": ["Average Combat Score", "Average Damage/Round", "Average Kills", "Clutch %", "KAST %", "Headshot %"]
           }
         },
         "x": {"field": "plot_value", "type": "quantitative"},
         "text": {
           "field": "stat_value_num",
           "type": "quantitative",
-          "format": ".2f"
+          "format": ".0f"
         },
         "align": {
           "condition": {"test": "datum.plot_value < 0", "value": "right"},
@@ -132,25 +127,6 @@
           "condition": {"test": "datum.plot_value < 0", "value": -5},
           "value": 5
         }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "baseline": "middle",
-        "fontWeight": "bold",
-        "fill": "#e2e8f0"
-      },
-      "encoding": {
-        "x": {"datum": 0},
-        "y": {
-          "field": "stat_name",
-          "type": "nominal",
-          "scale": {
-            "domain": ["acs", "adr", "kpr", "kd_ratio", "kast", "hs_percent"]
-          }
-        },
-        "text": {"field": "stat_name"}
       }
     }
   ],

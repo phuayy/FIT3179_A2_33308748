@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Malaysia EV & Economic Dashboard</title>
+  <title>Valorant VCT Champions 2025 Breakdown</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Load in correct order -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <script src="script.js" defer></script>
   <style>
     :root { color-scheme: dark; }
@@ -19,103 +18,88 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: #0b0b0b;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center all content horizontally */
-    }
-    /* Style for the container of the two bottom charts */
-    .chart-row {
-      display: flex; /* Arrange children side-by-side */
-      gap: 24px; /* Add space between the two charts */
-      width: 100%;
-      max-width: 1200px;
-      justify-content: center;
-    }
-    /* Common style for all chart containers */
-    .chart-container {
-      margin: 24px 0;
-      background: #111;
-      border-radius: 12px;
-      padding: 10px;
-      box-sizing: border-box; /* Ensures padding is included in width */
-    }
-    /* Give the smaller charts a flexible width */
-    .chart-row .chart-container {
-      flex: 1; /* Each chart takes up equal space */
     }
   </style>
 </head>
 <body>
-    <div class="hero">
-        <h1 class="hero__title">Valorant VCT Champions 2025 Breakdown</h1>
-    </div>
-
-    <div id="Choropleth_map" class="chart-container"></div>
-
-    <div class="text-container">
-
-        <div class="text-column">
-            <h2>Player Combat Profile</h2>
-            <p>
-            <strong>ACS (Average Combat Score):</strong> The best single measure of
-            a player's combat impact, factoring in damage, kills, and more.
-            </p>
-            <p>
-            <strong>KPR (Kills Per Round):</strong> A pure metric for a player's
-            fragging power, normalized across all rounds played.
-            </p>
+    <div class="site-wrapper">
+        <div class="hero">
+            <h1 class="hero__title">Valorant VCT Champions 2025 Breakdown</h1>
         </div>
 
-        <div class="text-column">
-            <h2>Tactical & Consistency Profile</h2>
-            <p>
-            <strong>APR (Assists Per Round):</strong> Shows a player's contribution
-            to team play, often through good utility usage.
-            </p><p>
-            <strong>KAST (%):</strong> A key consistency stat. The percentage of rounds
-            a player had a Kill, Assist, Survived, or was Traded.
-            </p><p>
-            <strong>HS% (Headshot %):</strong> The most direct measure of a player's
-            mechanical skill and aiming precision.
-            </p>
+        <div id="Choropleth_map" class="chart-container"></div>
+
+        <div class="text-container">
+            <div class="text-column">
+                <h2>Player Combat Profile</h2>
+                <p>
+                <strong>ACS (Average Combat Score):</strong> The best single measure of
+                a player's combat impact, factoring in damage, kills, and more.
+                </p>
+                <p>
+                <strong>KPR (Kills Per Round):</strong> A pure metric for a player's
+                fragging power, normalized across all rounds played.
+                </p>
+                <p>
+                <strong>Clutch %:</strong> The share of rounds a player wins when left in a 1vX situation
+                (e.g., 1v1 - 1v5) as the last alive. Calculated as
+                <em>clutches won ÷ clutch opportunities x 100</em>. Indicates late-round impact,
+                decision-making, and composure under pressure.
+                </p>
+            </div>
+
+            <div class="text-column">
+                <h2>Tactical & Consistency Profile</h2>
+                <p>
+                <strong>APR (Assists Per Round):</strong> Shows a player's contribution
+                to team play, often through good utility usage.
+                </p>
+                <p>
+                <strong>KAST (%):</strong> A key consistency stat. The percentage of rounds
+                a player had a Kill, Assist, Survived, or was Traded.
+                </p>
+                <p>
+                <strong>HS% (Headshot %):</strong> The most direct measure of a player's
+                mechanical skill and aiming precision.
+                </p>
+            </div>
         </div>
 
-    </div>
+        <div id="nrg_vs_others_performance"></div>
 
-    <div id="nrg_vs_others_performance"></div>
+        <div class="chart-row">
 
-    <div class="chart-row">
+            <!-- s0m Chart with Title -->
+            <div class="player-chart-wrapper">
+                <h3>s0m</h3>
+                <div id="s0m_radar" class="chart-container"></div>
+            </div>
 
-        <!-- s0m Chart with Title -->
-        <div class="player-chart-wrapper">
-            <h3>s0m</h3>
-            <div id="s0m_radar" class="chart-container"></div>
+            <!-- Ethan Chart with Title -->
+            <div class="player-chart-wrapper">
+                <h3>Ethan</h3>
+                <div id="Ethan_radar" class="chart-container"></div>
+            </div>
+
+            <!-- brawk Chart with Title -->
+            <div class="player-chart-wrapper">
+                <h3>brawk</h3>
+                <div id="brawk_radar" class="chart-container"></div>
+            </div>
+
+            <!-- skuba Chart with Title -->
+            <div class="player-chart-wrapper">
+                <h3>skuba</h3>
+                <div id="skuba_radar" class="chart-container"></div>
+            </div>
+
+            <!-- mada Chart with Title -->
+            <div class="player-chart-wrapper">
+                <h3>mada</h3>
+                <div id="mada_radar" class="chart-container"></div>
+            </div>
+
         </div>
-
-        <!-- Ethan Chart with Title -->
-        <div class="player-chart-wrapper">
-            <h3>Ethan</h3>
-            <div id="Ethan_radar" class="chart-container"></div>
-        </div>
-
-        <!-- brawk Chart with Title -->
-        <div class="player-chart-wrapper">
-            <h3>brawk</h3>
-            <div id="brawk_radar" class="chart-container"></div>
-        </div>
-
-        <!-- skuba Chart with Title -->
-        <div class="player-chart-wrapper">
-            <h3>skuba</h3>
-            <div id="skuba_radar" class="chart-container"></div>
-        </div>
-
-        <!-- mada Chart with Title -->
-        <div class="player-chart-wrapper">
-            <h3>mada</h3>
-            <div id="mada_radar" class="chart-container"></div>
-        </div>
-
     </div>
 </body>
 </html>
