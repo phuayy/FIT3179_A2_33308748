@@ -84,6 +84,40 @@ html, body { margin: 0; padding: 0; }
 .text-column p{ margin: 0 0 16px; line-height: 1.6; color: #e0e0e0; max-width: 60ch; }
 .text-column p:last-child{ margin-bottom: 0; }
 
+.chart-with-text-container {
+  display: flex;         /* Puts items side-by-side */
+  gap: 32px;             /* Space between the columns */
+  align-items: center;   /* Vertically aligns content in the middle */
+  margin-bottom: 40px;   /* Space below the entire section */
+}
+
+.chart-column {
+  flex: 0 0 70%; /* Sets a fixed width of 70% */
+}
+
+/* Column for the text (30% width) */
+.text-info-column {
+  flex: 1; /* Takes up the remaining space */
+  color: #e2e8f0;
+}
+
+.text-info-column h3 {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FF4655;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.text-info-column p {
+  margin: 0 0 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
 /* RADAR GRID — five across, wrap on small screens */
 .chart-row{
   display: grid;
