@@ -4,10 +4,9 @@ html, body { margin: 0; padding: 0; }
 
 /* 1000px centered page */
 .site-wrapper{
-  width: 100%;
   max-width: 1000px;
-  margin-inline: auto;
-  padding-inline: 16px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 /* Title */
@@ -25,13 +24,15 @@ html, body { margin: 0; padding: 0; }
 /* MAP — fills wrapper width and stays centered */
 #Choropleth_map{
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;  /* keeps proportions while width changes */
-  min-height: 360px;
   margin: 0 auto 24px;
-  background: #111;      /* optional card look */
-  border-radius: 12px;
-  padding: 10px;
+}
+
+#Choropleth_map .vega-embed{ width: 100% !important; }
+#Choropleth_map canvas,
+#Choropleth_map svg{
+  display: block;
+  width: 100% !important;   /* shrink to fit wrapper */
+  height: auto !important;
 }
 
 /* Two-column text */
@@ -83,3 +84,6 @@ html, body { margin: 0; padding: 0; }
 @media (max-width: 700px){ .text-container{ flex-direction: column; } }
 @media (max-width: 600px){ .chart-row{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 420px){ .chart-row{ grid-template-columns: 1fr; } }
+@supports (aspect-ratio: 1){
+  #Choropleth_map{ aspect-ratio: 16 / 9; min-height: 360px; }
+}

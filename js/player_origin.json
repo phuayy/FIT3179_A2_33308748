@@ -5,8 +5,8 @@
     "color": "#FFFFFF",
     "anchor": "middle"
   },
-  "width": 1366,
-  "height": 768,
+  "width": "container",
+  "height": 520,
   "background": "#111823",
   "projection": {"type": "naturalEarth1"},
   "layer": [
