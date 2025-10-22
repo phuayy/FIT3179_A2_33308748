@@ -7,15 +7,8 @@
 
   "data": {
     "name": "players",
-    "url": "data/detailed_matches_player_stats.csv",
-    "format": {"type": "csv"}
-  },
-
-  "datasets": {
-    "maps": {
-      "url": "data/detailed_matches_maps.csv",
-      "format": {"type": "csv"}
-    }
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/detailed_matches_player_stats.csv",
+    "format": { "type": "csv" }
   },
 
   "params": [
@@ -26,78 +19,90 @@
     {
       "lookup": "match_id",
       "from": {
-        "data": "maps",
+        "data": {
+          "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/detailed_matches_maps.csv",
+          "format": { "type": "csv" }
+        },
         "key": "match_id",
         "fields": ["map_name"]
       }
     },
 
     { "filter": "isValid(datum.map_name) && isValid(datum.agent)" },
-    { "calculate": "trim(datum.map_name)", "as": "Map" },
-    { "calculate": "toTitle(trim(datum.agent))", "as": "Agent" },
 
+    { "calculate": "lower(trim(datum.map_name))", "as": "MapNorm" },
+    { "calculate": "lower(trim(MapName))", "as": "MapParamNorm" },
+    { "filter": "datum.MapNorm === datum.MapParamNorm" },
 
-    { "filter": "datum.Map === MapName" },
-    { "aggregate": [{"op": "count", "as": "appearances"}], "groupby": ["Agent"] },
+    { "calculate": "trim(datum.agent)", "as": "AgentRaw" },
+    { "calculate": "upper(slice(datum.AgentRaw,0,1)) + lower(slice(datum.AgentRaw,1))", "as": "Agent" },
+
+    { "aggregate": [ { "op": "count", "as": "appearances" } ], "groupby": ["Agent","AgentRaw"] },
 
     {
-      "calculate": "lower(replace(replace(datum.Agent, /[^A-Za-z0-9]+/g, '_'), /_+/g, '_'))",
+      "calculate": "lower(replace(replace(datum.AgentRaw, /[^A-Za-z0-9]+/g, '_'), /_+/g, '_'))",
       "as": "agent_slug"
     },
-    { "calculate": "'images/agents/' + datum.agent_slug + '.png'", "as": "agent_img" }
+    { "calculate": "'images/agents/' + datum.agent_slug + '.jpg'", "as": "agent_img" }
   ],
 
   "layer": [
     {
-      "mark": {"type": "rule"},
+      "mark": { "type": "rule" },
       "encoding": {
         "y": {
-          "field": "Agent", "type": "nominal",
-          "sort": {"op": "sum", "field": "appearances", "order": "descending"},
+          "field": "Agent",
+          "type": "nominal",
+          "sort": { "op": "sum", "field": "appearances", "order": "descending" },
           "title": null,
-          "axis": {"labelColor": "white"}
+          "axis": { "labelColor": "white" }
         },
         "x": {
-          "aggregate": "sum", "field": "appearances", "type": "quantitative",
+          "aggregate": "sum",
+          "field": "appearances",
+          "type": "quantitative",
           "title": "Appearances",
-          "axis": {"labelColor": "white", "titleColor": "white"}
+          "axis": { "labelColor": "white", "titleColor": "white" },
+          "scale": { "zero": true, "nice": true }
         },
-        "x2": {"value": 0},
-        "color": {"value": "#FF4655"}
+        "x2": { "value": 0 },
+        "color": { "value": "#FF4655" }
       }
     },
 
     {
-      "mark": {"type": "image", "width": 22, "height": 22},
+      "mark": { "type": "image", "width": 22, "height": 22 },
       "encoding": {
         "y": {
-          "field": "Agent", "type": "nominal",
-          "sort": {"op": "sum", "field": "appearances", "order": "descending"}
+          "field": "Agent",
+          "type": "nominal",
+          "sort": { "op": "sum", "field": "appearances", "order": "descending" }
         },
-        "x": {"aggregate": "sum", "field": "appearances", "type": "quantitative"},
-        "url": {"field": "agent_img"},
+        "x": { "aggregate": "sum", "field": "appearances", "type": "quantitative" },
+        "url": { "field": "agent_img" },
         "tooltip": [
-          {"field": "Agent", "type": "nominal"},
-          {"aggregate": "sum", "field": "appearances", "type": "quantitative", "title": "Appearances"}
+          { "field": "Agent", "type": "nominal" },
+          { "aggregate": "sum", "field": "appearances", "type": "quantitative", "title": "Appearances" }
         ]
       }
     },
 
     {
-      "mark": {"type": "text", "align": "left", "dx": 6, "baseline": "middle", "fill": "#e5e7eb"},
+      "mark": { "type": "text", "align": "left", "dx": 6, "baseline": "middle", "fill": "#e5e7eb" },
       "encoding": {
         "y": {
-          "field": "Agent", "type": "nominal",
-          "sort": {"op": "sum", "field": "appearances", "order": "descending"}
+          "field": "Agent",
+          "type": "nominal",
+          "sort": { "op": "sum", "field": "appearances", "order": "descending" }
         },
-        "x": {"aggregate": "sum", "field": "appearances", "type": "quantitative"},
-        "text": {"aggregate": "sum", "field": "appearances", "type": "quantitative"}
+        "x": { "aggregate": "sum", "field": "appearances", "type": "quantitative" },
+        "text": { "aggregate": "sum", "field": "appearances", "type": "quantitative" }
       }
     }
   ],
 
   "config": {
-    "view": {"stroke": null},
-    "axis": {"gridColor": "#334155", "labelColor": "white", "titleColor": "white"}
+    "view": { "stroke": null },
+    "axis": { "gridColor": "#334155", "labelColor": "white", "titleColor": "white" }
   }
 }
