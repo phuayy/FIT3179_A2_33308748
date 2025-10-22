@@ -78,7 +78,7 @@
     }
   ],
   "config": {
-    "axis": {"labelColor": "white", "titleColor": "white", "gridColor": "#555"},
+    "axis": {"labelColor": "white", "titleColor": "white", "grid":false},
     "legend": {"labelColor": "white", "titleColor": "white"},
     "point": {"filled": true, "size": 50, "color": "#FF4655"},
     "view": {"stroke": null}

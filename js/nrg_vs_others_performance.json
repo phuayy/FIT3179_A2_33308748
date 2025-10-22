@@ -13,42 +13,32 @@
       "bind": {
         "input": "select",
         "name": "Compare NRG with: ",
-        "options": [
-          "BLG", "DRG", "DRX", "EDG", "FNC", "FUT", "G2", "GEN", "GX", "KC", "LEV", "MIBR", "PRX", "RRQ", "SEN", "T1", "TH", "TL", "VIT", "XLG"
-        ]
+        "options": ["BLG","DRG","DRX","EDG","FNC","FUT","G2","GEN","GX","KC","LEV","MIBR","PRX","RRQ","SEN","T1","TH","TL","VIT","XLG"]
       }
     }
   ],
   "transform": [
-    {
-      "calculate": "toNumber(replace(datum.stat_value, /[,%]/g, ''))",
-      "as": "stat_value_num"
-    },
+    { "calculate": "toNumber(replace(datum.stat_value, /[,%]/g, ''))", "as": "stat_value_num" },
     {
       "filter": {
         "field": "stat_name",
-        "oneOf": ["acs", "adr", "kast", "hs_percent", "kills", "cl_percent"]
+        "oneOf": ["acs","adr","kast","hs_percent","kills","cl_percent"]
       }
     },
     {
       "calculate": "{'acs': 'Average Combat Score', 'adr': 'Average Damage/Round', 'kills': 'Average Kills', 'cl_percent': 'Clutch %', 'kast': 'KAST %', 'hs_percent': 'Headshot %'}[datum.stat_name]",
       "as": "stat_label"
     },
-    {
-      "filter": "datum.team === 'NRG' || datum.team === TeamBSelection"
-    },
-    {
-      "calculate": "datum.team === 'NRG' ? -datum.stat_value_num : datum.stat_value_num",
-      "as": "plot_value"
-    }
+    { "filter": "datum.team === 'NRG' || datum.team === TeamBSelection" },
+    { "calculate": "datum.team === 'NRG' ? -datum.stat_value_num : datum.stat_value_num", "as": "plot_value" }
   ],
   "layer": [
     {
       "mark": "rule",
       "encoding": {
-        "x": {"datum": 0},
-        "color": {"value": "#334155"},
-        "size": {"value": 1}
+        "x": { "datum": 0 },
+        "color": { "value": "#334155" },
+        "size": { "value": 1 }
       }
     },
     {
@@ -57,76 +47,45 @@
         "y": {
           "field": "stat_label",
           "type": "nominal",
-          "axis": {
-            "title": null,
-            "labelColor": "white",
-            "labelFontSize": 12,
-            "labelFontWeight": "bold"
-          },
-          "scale": {
-            "domain": ["Average Combat Score", "Average Damage/Round", "Average Kills", "Clutch %", "KAST %", "Headshot %"]
-          }
+          "axis": { "title": null, "labelColor": "white", "labelFontSize": 12, "labelFontWeight": "bold" },
+          "scale": { "domain": ["Average Combat Score","Average Damage/Round","Average Kills","Clutch %","KAST %","Headshot %"] }
         },
         "x": {
           "field": "plot_value",
           "type": "quantitative",
           "title": "Average Stat Value",
-          "axis": {
-            "labelColor": "white",
-            "titleColor": "white",
-            "labelExpr": "format(abs(datum.value), '.0f')"
-          }
+          "axis": { "labelColor": "white", "titleColor": "white", "labelExpr": "format(abs(datum.value), '.0f')" }
         },
         "color": {
           "field": "team",
           "type": "nominal",
-          "legend": {"title": "Team", "labelColor": "white", "titleColor": "white"}
+          "scale": {
+            "domain": ["NRG","BLG","DRG","DRX","EDG","FNC","FUT","G2","GEN","GX","KC","LEV","MIBR","PRX","RRQ","SEN","T1","TH","TL","VIT","XLG"],
+            "range": ["#FF4655","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA","#60A5FA"]
+          },
+          "legend": null
         },
         "tooltip": [
-          {"field": "team", "type": "nominal", "title": "Team"},
-          {"field": "stat_label", "type": "nominal", "title": "Stat"},
-          {
-            "field": "stat_value_num",
-            "type": "quantitative",
-            "title": "Value",
-            "format": ".0f"
-          }
+          { "field": "team", "type": "nominal", "title": "Team" },
+          { "field": "stat_label", "type": "nominal", "title": "Stat" },
+          { "field": "stat_value_num", "type": "quantitative", "title": "Value", "format": ".0f" }
         ]
       }
     },
     {
-      "mark": {
-        "type": "text",
-        "baseline": "middle",
-        "fill": "white"
-      },
+      "mark": { "type": "text", "baseline": "middle", "fill": "white" },
       "encoding": {
         "y": {
           "field": "stat_label",
           "type": "nominal",
-          "scale": {
-            "domain": ["Average Combat Score", "Average Damage/Round", "Average Kills", "Clutch %", "KAST %", "Headshot %"]
-          }
+          "scale": { "domain": ["Average Combat Score","Average Damage/Round","Average Kills","Clutch %","KAST %","Headshot %"] }
         },
-        "x": {"field": "plot_value", "type": "quantitative"},
-        "text": {
-          "field": "stat_value_num",
-          "type": "quantitative",
-          "format": ".0f"
-        },
-        "align": {
-          "condition": {"test": "datum.plot_value < 0", "value": "right"},
-          "value": "left"
-        },
-        "dx": {
-          "condition": {"test": "datum.plot_value < 0", "value": -5},
-          "value": 5
-        }
+        "x": { "field": "plot_value", "type": "quantitative" },
+        "text": { "field": "stat_value_num", "type": "quantitative", "format": ".0f" },
+        "align": { "condition": { "test": "datum.plot_value < 0", "value": "right" }, "value": "left" },
+        "dx": { "condition": { "test": "datum.plot_value < 0", "value": -5 }, "value": 5 }
       }
     }
   ],
-  "config": {
-    "view": {"stroke": null},
-    "axis": {"gridColor": "#334155"}
-  }
+  "config": { "view": { "stroke": null }, "axis": { "gridColor": "#334155" } }
 }

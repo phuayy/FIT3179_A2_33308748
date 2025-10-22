@@ -113,6 +113,6 @@
 
   "config": {
     "view": { "stroke": null },
-    "axis": { "gridColor": "#334155", "labelColor": "white", "titleColor": "white" }
+    "axis": { "grid": false, "labelColor": "white", "titleColor": "white" }
   }
 }
