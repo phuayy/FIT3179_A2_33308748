@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Most-played agents on a selected map by joining player stats to maps via match_id.",
+  "description": "Most-played agents on a selected map by joining player stats to maps via match_id (Top 10).",
   "width": "container",
   "height": 420,
   "background": "transparent",
@@ -37,7 +37,13 @@
     { "calculate": "trim(datum.agent)", "as": "AgentRaw" },
     { "calculate": "upper(slice(datum.AgentRaw,0,1)) + lower(slice(datum.AgentRaw,1))", "as": "Agent" },
 
-    { "aggregate": [ { "op": "count", "as": "appearances" } ], "groupby": ["Agent","AgentRaw"] },
+    { "aggregate": [{ "op": "count", "as": "appearances" }], "groupby": ["Agent", "AgentRaw"] },
+
+    {
+      "window": [{ "op": "rank", "as": "rank" }],
+      "sort": [{ "field": "appearances", "order": "descending" }]
+    },
+    { "filter": "datum.rank <= 5" },
 
     {
       "calculate": "lower(replace(replace(datum.AgentRaw, /[^A-Za-z0-9]+/g, '_'), /_+/g, '_'))",
@@ -46,60 +52,64 @@
     { "calculate": "'images/agents/' + datum.agent_slug + '.jpg'", "as": "agent_img" }
   ],
 
-  "layer": [
+    "layer": [
     {
-      "mark": { "type": "rule" },
-      "encoding": {
+        "mark": { "type": "rule", "strokeWidth": 1.5 },
+        "encoding": {
         "y": {
-          "field": "Agent",
-          "type": "nominal",
-          "sort": { "op": "sum", "field": "appearances", "order": "descending" },
-          "title": null,
-          "axis": { "labelColor": "white" }
+            "field": "Agent", "type": "nominal",
+            "sort": "-x", "title": null,
+            "axis": { "labelColor": "white" }
         },
         "x": {
-          "aggregate": "sum",
-          "field": "appearances",
-          "type": "quantitative",
-          "title": "Appearances",
-          "axis": { "labelColor": "white", "titleColor": "white" },
-          "scale": { "zero": true, "nice": true }
+            "field": "appearances", "type": "quantitative",
+            "title": "Appearances",
+            "axis": { "labelColor": "white", "titleColor": "white" },
+            "scale": { "zero": true, "nice": true }
         },
         "x2": { "value": 0 },
         "color": { "value": "#FF4655" }
-      }
+        }
     },
 
     {
-      "mark": { "type": "image", "width": 22, "height": 22 },
-      "encoding": {
-        "y": {
-          "field": "Agent",
-          "type": "nominal",
-          "sort": { "op": "sum", "field": "appearances", "order": "descending" }
+        "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 530,
+        "color": "#0b0f17",
+        "stroke": "#FF4655",
+        "strokeWidth": 1.2
         },
-        "x": { "aggregate": "sum", "field": "appearances", "type": "quantitative" },
+        "encoding": {
+        "y": { "field": "Agent", "type": "nominal", "sort": "-x" },
+        "x": { "field": "appearances", "type": "quantitative" }
+        }
+    },
+
+    {
+        "mark": { "type": "image", "width": 48, "height": 48 },
+        "encoding": {
+        "y": { "field": "Agent", "type": "nominal", "sort": "-x" },
+        "x": { "field": "appearances", "type": "quantitative" },
         "url": { "field": "agent_img" },
         "tooltip": [
-          { "field": "Agent", "type": "nominal" },
-          { "aggregate": "sum", "field": "appearances", "type": "quantitative", "title": "Appearances" }
+            { "field": "Agent", "type": "nominal" },
+            { "field": "appearances", "type": "quantitative", "title": "Appearances" }
         ]
-      }
+        }
     },
 
     {
-      "mark": { "type": "text", "align": "left", "dx": 6, "baseline": "middle", "fill": "#e5e7eb" },
-      "encoding": {
-        "y": {
-          "field": "Agent",
-          "type": "nominal",
-          "sort": { "op": "sum", "field": "appearances", "order": "descending" }
-        },
-        "x": { "aggregate": "sum", "field": "appearances", "type": "quantitative" },
-        "text": { "aggregate": "sum", "field": "appearances", "type": "quantitative" }
-      }
+        "mark": { "type": "text", "align": "left", "dx": 30, "baseline": "middle", "fill": "#e5e7eb" },
+        "encoding": {
+        "y": { "field": "Agent", "type": "nominal", "sort": "-x" },
+        "x": { "field": "appearances", "type": "quantitative" },
+        "text": { "field": "appearances", "type": "quantitative" }
+        }
     }
-  ],
+    ],
 
   "config": {
     "view": { "stroke": null },

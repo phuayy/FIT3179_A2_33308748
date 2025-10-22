@@ -296,6 +296,17 @@ html, body { margin: 0; padding: 0; }
   box-shadow: 0 0 0 2px rgba(255,70,85,.32) inset;
 }
 
+#map_agent_lollipop{
+  width: 100%;
+  min-height: 420px;   /* matches your spec height */
+  aspect-ratio: auto;  /* in case you globally set .chart-container to a ratio */
+  margin: 8px auto 24px;
+}
+
+#map_agent_lollipop .vega-embed image{
+  image-rendering: auto; /* or: -webkit-optimize-contrast; */
+}
+
 /* Responsive stacking */
 @media (max-width: 768px) {
   .intro-container {
