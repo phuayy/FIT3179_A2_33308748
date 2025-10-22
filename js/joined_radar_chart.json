@@ -15,12 +15,12 @@
     {"name": "radius", "update": "width / 2.5"},
     {
       "name": "select_s0m",
-      "init": false,
+      "init": true,
       "bind": {"input": "checkbox", "name": "s0m"}
     },
     {
       "name": "select_Ethan",
-      "init": false,
+      "init": true,
       "bind": {"input": "checkbox", "name": "Ethan"}
     },
     {

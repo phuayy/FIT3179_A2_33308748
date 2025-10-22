@@ -289,11 +289,11 @@ html, body { margin: 0; padding: 0; }
   letter-spacing: .02em;
 }
 
-.map-tile:hover{ transform: translateY(-1px); }
+.map-tile:hover{ transform: translateY(-5px); }
 .map-tile:hover img{ filter: brightness(.9); }
 .map-tile.is-active{
   border-color: #FF4655;
-  box-shadow: 0 0 0 2px rgba(255,70,85,.32) inset;
+  box-shadow: 0 0 0 10px rgba(255,70,85,.6) inset;
 }
 
 #map_agent_lollipop{
