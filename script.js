@@ -88,3 +88,7 @@ vegaEmbed("#player_radar_chart_container", vg_radar, {actions: false})
     console.log("Combined radar chart loaded and controls moved successfully");
   })
   .catch(console.error);
+
+// NEW SPEC: Stacked Bar Chart for Multi-Kills
+var vg_multikill_chart = "./js/stacked_bar_team_kill_performance.json";
+vegaEmbed("#multikill_chart_container", vg_multikill_chart, {actions: false});

@@ -5,7 +5,7 @@
   "height": 400,
   "background": "transparent",
   "data": {
-    "url": "performance_data.csv",
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/performance_data.csv",
     "format": {"type": "csv"}
   },
   "transform": [
