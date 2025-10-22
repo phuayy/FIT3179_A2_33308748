@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Most-played agents on a selected map by joining player stats to maps via match_id.",
+  "width": "container",
+  "height": 420,
+  "background": "transparent",
+
+  "data": {
+    "name": "players",
+    "url": "data/detailed_matches_player_stats.csv",
+    "format": {"type": "csv"}
+  },
+
+  "datasets": {
+    "maps": {
+      "url": "data/detailed_matches_maps.csv",
+      "format": {"type": "csv"}
+    }
+  },
+
+  "params": [
+    { "name": "MapName", "value": "Ascent" }
+  ],
+
+  "transform": [
+    {
+      "lookup": "match_id",
+      "from": {
+        "data": "maps",
+        "key": "match_id",
+        "fields": ["map_name"]
+      }
+    },
+
+    { "filter": "isValid(datum.map_name) && isValid(datum.agent)" },
+    { "calculate": "trim(datum.map_name)", "as": "Map" },
+    { "calculate": "toTitle(trim(datum.agent))", "as": "Agent" },
+
+
+    { "filter": "datum.Map === MapName" },
+    { "aggregate": [{"op": "count", "as": "appearances"}], "groupby": ["Agent"] },
+
+    {
+      "calculate": "lower(replace(replace(datum.Agent, /[^A-Za-z0-9]+/g, '_'), /_+/g, '_'))",
+      "as": "agent_slug"
+    },
+    { "calculate": "'images/agents/' + datum.agent_slug + '.png'", "as": "agent_img" }
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "rule"},
+      "encoding": {
+        "y": {
+          "field": "Agent", "type": "nominal",
+          "sort": {"op": "sum", "field": "appearances", "order": "descending"},
+          "title": null,
+          "axis": {"labelColor": "white"}
+        },
+        "x": {
+          "aggregate": "sum", "field": "appearances", "type": "quantitative",
+          "title": "Appearances",
+          "axis": {"labelColor": "white", "titleColor": "white"}
+        },
+        "x2": {"value": 0},
+        "color": {"value": "#FF4655"}
+      }
+    },
+
+    {
+      "mark": {"type": "image", "width": 22, "height": 22},
+      "encoding": {
+        "y": {
+          "field": "Agent", "type": "nominal",
+          "sort": {"op": "sum", "field": "appearances", "order": "descending"}
+        },
+        "x": {"aggregate": "sum", "field": "appearances", "type": "quantitative"},
+        "url": {"field": "agent_img"},
+        "tooltip": [
+          {"field": "Agent", "type": "nominal"},
+          {"aggregate": "sum", "field": "appearances", "type": "quantitative", "title": "Appearances"}
+        ]
+      }
+    },
+
+    {
+      "mark": {"type": "text", "align": "left", "dx": 6, "baseline": "middle", "fill": "#e5e7eb"},
+      "encoding": {
+        "y": {
+          "field": "Agent", "type": "nominal",
+          "sort": {"op": "sum", "field": "appearances", "order": "descending"}
+        },
+        "x": {"aggregate": "sum", "field": "appearances", "type": "quantitative"},
+        "text": {"aggregate": "sum", "field": "appearances", "type": "quantitative"}
+      }
+    }
+  ],
+
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"gridColor": "#334155", "labelColor": "white", "titleColor": "white"}
+  }
+}

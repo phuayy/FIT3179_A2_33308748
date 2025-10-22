@@ -92,7 +92,42 @@ vegaEmbed("#player_radar_chart_container", vg_radar, {actions: false})
 var vg_nrg_google_trend = "./js/nrg_trends_google.json";
 vegaEmbed("#nrg_google_trends_line", vg_nrg_google_trend, {actions: false});
 
-var vg_related_queries_bar = "./js/bar_related_queries.json"; // Path to your treemap JSON
+var vg_related_queries_bar = "./js/bar_related_queries.json";
 vegaEmbed("#related_queries_bar", vg_related_queries_bar, {actions: false})
-  .then(res => console.log("Related queries bar loaded successfully"))
+.then(res => console.log("Related queries bar loaded successfully"))
+.catch(console.error);
+
+var vg_map_agent_lollipop = "./js/map_agent_lollipop.json";
+let mapLollipopView = null;
+
+vegaEmbed("#map_agent_lollipop", vg_map_agent_lollipop, { actions: false })
+  .then(function(res){
+    mapLollipopView = res.view;
+    console.log("Map–Agent lollipop loaded");
+  })
   .catch(console.error);
+
+// If you have the clickable map tiles, wire them to update the MapName param
+var mapTilesEl = document.getElementById("mapTiles");
+if (mapTilesEl) {
+  mapTilesEl.addEventListener("click", async function(e){
+    var tile = e.target.closest(".map-tile");
+    if (!tile || !mapLollipopView) return;
+
+    // UI state (active tile toggle)
+    document.querySelectorAll(".map-tile").forEach(function(btn){
+      btn.classList.toggle("is-active", btn === tile);
+      btn.setAttribute("aria-pressed", btn === tile ? "true" : "false");
+    });
+
+    // Update the Vega-Lite parameter
+    var mapName = tile.dataset.map;          // e.g., "Ascent"
+    try {
+      mapLollipopView.signal("MapName", mapName);
+      await mapLollipopView.runAsync();
+      console.log("Updated lollipop to map:", mapName);
+    } catch (err) {
+      console.error("Failed to update MapName:", err);
+    }
+  });
+}

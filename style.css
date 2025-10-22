@@ -81,7 +81,7 @@ html, body { margin: 0; padding: 0; }
   border-bottom: 2px solid #FF4655;
   text-transform: uppercase; letter-spacing: .5px; font-size: 1.2em;
 }
-.text-column p{ margin: 0 0 16px; line-height: 1.6; color: #e0e0e0; max-width: 60ch; }
+.text-column p{ margin: 0 0 16px; line-height: 1.6; color: #e0e0e0; max-width: 60ch; text-align: justify; }
 .text-column p:last-child{ margin-bottom: 0; }
 
 .chart-with-text-container {
@@ -122,7 +122,7 @@ html, body { margin: 0; padding: 0; }
   margin-bottom: 40px; /* Add space below the chart */
 }
 
-#related_queries_treemap {
+#related_queries_bar {
   width: 100%;
   margin-bottom: 40px; /* Add space below the chart */
 }
@@ -245,6 +245,55 @@ html, body { margin: 0; padding: 0; }
 
 .radar-controls .vega-bind input[type="checkbox"]:checked::before {
   transform: scale(1);
+}
+
+.map-tiles{
+  display: grid;
+  grid-template-columns: repeat(4, 220px); /* <- tile width */
+  gap: 12px;
+  justify-content: center;                 /* center both rows */
+  margin: 12px 0 20px;
+}
+
+/* Button reset + fixed-size tile card */
+.map-tile{
+  all: unset;                /* remove default button styles */
+  display: grid;
+  place-items: end center;
+  width: 220px;              /* match grid column width */
+  height: 124px;             /* ~16:9; adjust if you want taller/shorter */
+  position: relative;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0f17;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.map-tile img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;         /* crop to fill uniformly despite different source sizes */
+  filter: brightness(.75);
+  transition: filter .15s ease;
+}
+
+.map-tile span{
+  position: relative; z-index: 1;
+  background: rgba(0,0,0,.45);
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.map-tile:hover{ transform: translateY(-1px); }
+.map-tile:hover img{ filter: brightness(.9); }
+.map-tile.is-active{
+  border-color: #FF4655;
+  box-shadow: 0 0 0 2px rgba(255,70,85,.32) inset;
 }
 
 /* Responsive stacking */
