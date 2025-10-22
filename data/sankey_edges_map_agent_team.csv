@@ -1,0 +1,302 @@
+source,target,value,level_from,level_to
+m:Abyss,a:Astra,12,Map,Agent
+m:Abyss,a:Breach,4,Map,Agent
+m:Abyss,a:Chamber,1,Map,Agent
+m:Abyss,a:Cypher,17,Map,Agent
+m:Abyss,a:Deadlock,1,Map,Agent
+m:Abyss,a:Harbor,5,Map,Agent
+m:Abyss,a:Jett,11,Map,Agent
+m:Abyss,a:Kayo,10,Map,Agent
+m:Abyss,a:Neon,1,Map,Agent
+m:Abyss,a:Omen,19,Map,Agent
+m:Abyss,a:Sage,1,Map,Agent
+m:Abyss,a:Sova,28,Map,Agent
+m:Abyss,a:Tejo,2,Map,Agent
+m:Abyss,a:Vyse,5,Map,Agent
+m:Abyss,a:Waylay,9,Map,Agent
+m:Abyss,a:Yoru,14,Map,Agent
+m:Ascent,a:Chamber,1,Map,Agent
+m:Ascent,a:Cypher,7,Map,Agent
+m:Ascent,a:Jett,9,Map,Agent
+m:Ascent,a:Kayo,7,Map,Agent
+m:Ascent,a:Omen,22,Map,Agent
+m:Ascent,a:Sage,8,Map,Agent
+m:Ascent,a:Sova,22,Map,Agent
+m:Ascent,a:Tejo,1,Map,Agent
+m:Ascent,a:Vyse,15,Map,Agent
+m:Ascent,a:Waylay,3,Map,Agent
+m:Ascent,a:Yoru,15,Map,Agent
+m:Bind,a:Astra,5,Map,Agent
+m:Bind,a:Brimstone,17,Map,Agent
+m:Bind,a:Deadlock,3,Map,Agent
+m:Bind,a:Fade,17,Map,Agent
+m:Bind,a:Gekko,5,Map,Agent
+m:Bind,a:Raze,10,Map,Agent
+m:Bind,a:Skye,3,Map,Agent
+m:Bind,a:Tejo,5,Map,Agent
+m:Bind,a:Viper,21,Map,Agent
+m:Bind,a:Waylay,7,Map,Agent
+m:Bind,a:Yoru,17,Map,Agent
+m:Corrode,a:Astra,4,Map,Agent
+m:Corrode,a:Cypher,1,Map,Agent
+m:Corrode,a:Deadlock,1,Map,Agent
+m:Corrode,a:Fade,17,Map,Agent
+m:Corrode,a:Kayo,8,Map,Agent
+m:Corrode,a:Neon,6,Map,Agent
+m:Corrode,a:Omen,22,Map,Agent
+m:Corrode,a:Raze,2,Map,Agent
+m:Corrode,a:Sage,1,Map,Agent
+m:Corrode,a:Sova,9,Map,Agent
+m:Corrode,a:Tejo,2,Map,Agent
+m:Corrode,a:Viper,20,Map,Agent
+m:Corrode,a:Vyse,11,Map,Agent
+m:Corrode,a:Waylay,14,Map,Agent
+m:Corrode,a:Yoru,12,Map,Agent
+m:Haven,a:Breach,3,Map,Agent
+m:Haven,a:Cypher,6,Map,Agent
+m:Haven,a:Fade,1,Map,Agent
+m:Haven,a:Killjoy,13,Map,Agent
+m:Haven,a:Neon,14,Map,Agent
+m:Haven,a:Omen,20,Map,Agent
+m:Haven,a:Sova,19,Map,Agent
+m:Haven,a:Viper,13,Map,Agent
+m:Haven,a:Vyse,1,Map,Agent
+m:Haven,a:Waylay,4,Map,Agent
+m:Haven,a:Yoru,6,Map,Agent
+m:Lotus,a:Breach,2,Map,Agent
+m:Lotus,a:Chamber,4,Map,Agent
+m:Lotus,a:Cypher,4,Map,Agent
+m:Lotus,a:Deadlock,5,Map,Agent
+m:Lotus,a:Fade,34,Map,Agent
+m:Lotus,a:Killjoy,3,Map,Agent
+m:Lotus,a:Neon,3,Map,Agent
+m:Lotus,a:Omen,36,Map,Agent
+m:Lotus,a:Raze,22,Map,Agent
+m:Lotus,a:Sage,1,Map,Agent
+m:Lotus,a:Tejo,5,Map,Agent
+m:Lotus,a:Viper,17,Map,Agent
+m:Lotus,a:Vyse,19,Map,Agent
+m:Lotus,a:Waylay,5,Map,Agent
+m:Lotus,a:Yoru,20,Map,Agent
+m:Sunset,a:Breach,8,Map,Agent
+m:Sunset,a:Cypher,18,Map,Agent
+m:Sunset,a:Fade,6,Map,Agent
+m:Sunset,a:Neon,15,Map,Agent
+m:Sunset,a:Omen,22,Map,Agent
+m:Sunset,a:Raze,4,Map,Agent
+m:Sunset,a:Sage,2,Map,Agent
+m:Sunset,a:Sova,16,Map,Agent
+m:Sunset,a:Viper,5,Map,Agent
+m:Sunset,a:Vyse,2,Map,Agent
+m:Sunset,a:Waylay,3,Map,Agent
+m:Sunset,a:Yoru,9,Map,Agent
+a:Astra,t:EDward Gaming,1,Agent,Team
+a:Astra,t:FNATIC,9,Agent,Team
+a:Astra,t:G2 Esports,2,Agent,Team
+a:Astra,t:GIANTX,2,Agent,Team
+a:Astra,t:MIBR,3,Agent,Team
+a:Astra,t:Sentinels,1,Agent,Team
+a:Astra,t:Team Heretics,2,Agent,Team
+a:Astra,t:Xi Lai Gaming,1,Agent,Team
+a:Breach,t:Dragon Ranger Gaming,2,Agent,Team
+a:Breach,t:EDward Gaming,1,Agent,Team
+a:Breach,t:FNATIC,5,Agent,Team
+a:Breach,t:GIANTX,4,Agent,Team
+a:Breach,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),2,Agent,Team
+a:Breach,t:NRG,1,Agent,Team
+a:Breach,t:Rex Regum Qeon,1,Agent,Team
+a:Breach,t:Sentinels,1,Agent,Team
+a:Brimstone,t:DRX,4,Agent,Team
+a:Brimstone,t:EDward Gaming,1,Agent,Team
+a:Brimstone,t:G2 Esports,1,Agent,Team
+a:Brimstone,t:MIBR,2,Agent,Team
+a:Brimstone,t:Paper Rex,3,Agent,Team
+a:Brimstone,t:Team Heretics,2,Agent,Team
+a:Brimstone,t:Team Liquid,2,Agent,Team
+a:Brimstone,t:Xi Lai Gaming,2,Agent,Team
+a:Chamber,t:G2 Esports,2,Agent,Team
+a:Chamber,t:Team Heretics,4,Agent,Team
+a:Cypher,t:DRX,8,Agent,Team
+a:Cypher,t:Dragon Ranger Gaming,2,Agent,Team
+a:Cypher,t:EDward Gaming,1,Agent,Team
+a:Cypher,t:FNATIC,5,Agent,Team
+a:Cypher,t:G2 Esports,1,Agent,Team
+a:Cypher,t:GIANTX,10,Agent,Team
+a:Cypher,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),2,Agent,Team
+a:Cypher,t:MIBR,5,Agent,Team
+a:Cypher,t:NRG,1,Agent,Team
+a:Cypher,t:Rex Regum Qeon,5,Agent,Team
+a:Cypher,t:Sentinels,1,Agent,Team
+a:Cypher,t:T1,2,Agent,Team
+a:Cypher,t:Team Heretics,3,Agent,Team
+a:Cypher,t:Team Liquid,4,Agent,Team
+a:Cypher,t:Xi Lai Gaming,3,Agent,Team
+a:Deadlock,t:G2 Esports,2,Agent,Team
+a:Deadlock,t:GIANTX,2,Agent,Team
+a:Deadlock,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),1,Agent,Team
+a:Deadlock,t:Team Heretics,4,Agent,Team
+a:Deadlock,t:Xi Lai Gaming,1,Agent,Team
+a:Fade,t:DRX,11,Agent,Team
+a:Fade,t:Dragon Ranger Gaming,1,Agent,Team
+a:Fade,t:EDward Gaming,2,Agent,Team
+a:Fade,t:FNATIC,10,Agent,Team
+a:Fade,t:G2 Esports,9,Agent,Team
+a:Fade,t:GIANTX,4,Agent,Team
+a:Fade,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),1,Agent,Team
+a:Fade,t:MIBR,2,Agent,Team
+a:Fade,t:NRG,3,Agent,Team
+a:Fade,t:Paper Rex,10,Agent,Team
+a:Fade,t:Rex Regum Qeon,3,Agent,Team
+a:Fade,t:Sentinels,3,Agent,Team
+a:Fade,t:T1,4,Agent,Team
+a:Fade,t:Team Heretics,8,Agent,Team
+a:Fade,t:Team Liquid,3,Agent,Team
+a:Fade,t:Xi Lai Gaming,1,Agent,Team
+a:Gekko,t:GIANTX,2,Agent,Team
+a:Gekko,t:Team Liquid,1,Agent,Team
+a:Gekko,t:Xi Lai Gaming,2,Agent,Team
+a:Harbor,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),1,Agent,Team
+a:Harbor,t:NRG,4,Agent,Team
+a:Jett,t:GIANTX,3,Agent,Team
+a:Jett,t:MIBR,4,Agent,Team
+a:Jett,t:NRG,2,Agent,Team
+a:Jett,t:Rex Regum Qeon,3,Agent,Team
+a:Jett,t:Sentinels,1,Agent,Team
+a:Jett,t:Team Heretics,2,Agent,Team
+a:Jett,t:Team Liquid,3,Agent,Team
+a:Jett,t:Xi Lai Gaming,2,Agent,Team
+a:Kayo,t:GIANTX,3,Agent,Team
+a:Kayo,t:MIBR,8,Agent,Team
+a:Kayo,t:NRG,6,Agent,Team
+a:Kayo,t:Rex Regum Qeon,3,Agent,Team
+a:Kayo,t:Sentinels,1,Agent,Team
+a:Kayo,t:Team Liquid,3,Agent,Team
+a:Kayo,t:Xi Lai Gaming,1,Agent,Team
+a:Killjoy,t:FNATIC,7,Agent,Team
+a:Killjoy,t:MIBR,3,Agent,Team
+a:Killjoy,t:NRG,3,Agent,Team
+a:Killjoy,t:Sentinels,2,Agent,Team
+a:Killjoy,t:Xi Lai Gaming,1,Agent,Team
+a:Neon,t:DRX,3,Agent,Team
+a:Neon,t:Dragon Ranger Gaming,1,Agent,Team
+a:Neon,t:EDward Gaming,3,Agent,Team
+a:Neon,t:FNATIC,2,Agent,Team
+a:Neon,t:GIANTX,4,Agent,Team
+a:Neon,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),3,Agent,Team
+a:Neon,t:MIBR,5,Agent,Team
+a:Neon,t:NRG,4,Agent,Team
+a:Neon,t:Rex Regum Qeon,1,Agent,Team
+a:Neon,t:Sentinels,4,Agent,Team
+a:Neon,t:T1,6,Agent,Team
+a:Neon,t:Team Liquid,1,Agent,Team
+a:Neon,t:Xi Lai Gaming,2,Agent,Team
+a:Omen,t:DRX,18,Agent,Team
+a:Omen,t:Dragon Ranger Gaming,4,Agent,Team
+a:Omen,t:EDward Gaming,4,Agent,Team
+a:Omen,t:FNATIC,13,Agent,Team
+a:Omen,t:G2 Esports,9,Agent,Team
+a:Omen,t:GIANTX,11,Agent,Team
+a:Omen,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),5,Agent,Team
+a:Omen,t:MIBR,10,Agent,Team
+a:Omen,t:NRG,17,Agent,Team
+a:Omen,t:Paper Rex,13,Agent,Team
+a:Omen,t:Rex Regum Qeon,7,Agent,Team
+a:Omen,t:Sentinels,6,Agent,Team
+a:Omen,t:T1,6,Agent,Team
+a:Omen,t:Team Heretics,8,Agent,Team
+a:Omen,t:Team Liquid,5,Agent,Team
+a:Omen,t:Xi Lai Gaming,5,Agent,Team
+a:Raze,t:DRX,1,Agent,Team
+a:Raze,t:FNATIC,3,Agent,Team
+a:Raze,t:G2 Esports,1,Agent,Team
+a:Raze,t:GIANTX,5,Agent,Team
+a:Raze,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),1,Agent,Team
+a:Raze,t:MIBR,2,Agent,Team
+a:Raze,t:NRG,3,Agent,Team
+a:Raze,t:Paper Rex,11,Agent,Team
+a:Raze,t:Rex Regum Qeon,1,Agent,Team
+a:Raze,t:Sentinels,1,Agent,Team
+a:Raze,t:Team Heretics,5,Agent,Team
+a:Raze,t:Team Liquid,3,Agent,Team
+a:Raze,t:Xi Lai Gaming,1,Agent,Team
+a:Sage,t:EDward Gaming,1,Agent,Team
+a:Sage,t:FNATIC,4,Agent,Team
+a:Sage,t:G2 Esports,1,Agent,Team
+a:Sage,t:Paper Rex,6,Agent,Team
+a:Sage,t:Xi Lai Gaming,1,Agent,Team
+a:Skye,t:Team Liquid,1,Agent,Team
+a:Skye,t:Xi Lai Gaming,2,Agent,Team
+a:Sova,t:DRX,11,Agent,Team
+a:Sova,t:Dragon Ranger Gaming,1,Agent,Team
+a:Sova,t:EDward Gaming,3,Agent,Team
+a:Sova,t:FNATIC,12,Agent,Team
+a:Sova,t:G2 Esports,3,Agent,Team
+a:Sova,t:GIANTX,7,Agent,Team
+a:Sova,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),4,Agent,Team
+a:Sova,t:MIBR,13,Agent,Team
+a:Sova,t:NRG,14,Agent,Team
+a:Sova,t:Paper Rex,6,Agent,Team
+a:Sova,t:Rex Regum Qeon,4,Agent,Team
+a:Sova,t:Sentinels,3,Agent,Team
+a:Sova,t:T1,2,Agent,Team
+a:Sova,t:Team Heretics,4,Agent,Team
+a:Sova,t:Team Liquid,3,Agent,Team
+a:Sova,t:Xi Lai Gaming,4,Agent,Team
+a:Tejo,t:EDward Gaming,1,Agent,Team
+a:Tejo,t:FNATIC,3,Agent,Team
+a:Tejo,t:G2 Esports,10,Agent,Team
+a:Tejo,t:Rex Regum Qeon,1,Agent,Team
+a:Viper,t:DRX,5,Agent,Team
+a:Viper,t:EDward Gaming,2,Agent,Team
+a:Viper,t:FNATIC,12,Agent,Team
+a:Viper,t:G2 Esports,7,Agent,Team
+a:Viper,t:GIANTX,6,Agent,Team
+a:Viper,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),2,Agent,Team
+a:Viper,t:MIBR,11,Agent,Team
+a:Viper,t:NRG,10,Agent,Team
+a:Viper,t:Paper Rex,5,Agent,Team
+a:Viper,t:Rex Regum Qeon,2,Agent,Team
+a:Viper,t:Sentinels,4,Agent,Team
+a:Viper,t:Team Heretics,5,Agent,Team
+a:Viper,t:Team Liquid,2,Agent,Team
+a:Viper,t:Xi Lai Gaming,3,Agent,Team
+a:Vyse,t:DRX,9,Agent,Team
+a:Vyse,t:Dragon Ranger Gaming,2,Agent,Team
+a:Vyse,t:FNATIC,7,Agent,Team
+a:Vyse,t:G2 Esports,1,Agent,Team
+a:Vyse,t:GIANTX,1,Agent,Team
+a:Vyse,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),2,Agent,Team
+a:Vyse,t:MIBR,1,Agent,Team
+a:Vyse,t:NRG,9,Agent,Team
+a:Vyse,t:Paper Rex,11,Agent,Team
+a:Vyse,t:Sentinels,2,Agent,Team
+a:Vyse,t:T1,4,Agent,Team
+a:Vyse,t:Team Heretics,3,Agent,Team
+a:Vyse,t:Team Liquid,1,Agent,Team
+a:Waylay,t:DRX,21,Agent,Team
+a:Waylay,t:Dragon Ranger Gaming,3,Agent,Team
+a:Waylay,t:EDward Gaming,1,Agent,Team
+a:Waylay,t:FNATIC,4,Agent,Team
+a:Waylay,t:MIBR,4,Agent,Team
+a:Waylay,t:NRG,4,Agent,Team
+a:Waylay,t:Paper Rex,1,Agent,Team
+a:Waylay,t:Rex Regum Qeon,2,Agent,Team
+a:Waylay,t:T1,1,Agent,Team
+a:Waylay,t:Team Heretics,2,Agent,Team
+a:Waylay,t:Team Liquid,1,Agent,Team
+a:Waylay,t:Xi Lai Gaming,1,Agent,Team
+a:Yoru,t:DRX,19,Agent,Team
+a:Yoru,t:Dragon Ranger Gaming,4,Agent,Team
+a:Yoru,t:EDward Gaming,4,Agent,Team
+a:Yoru,t:FNATIC,14,Agent,Team
+a:Yoru,t:G2 Esports,11,Agent,Team
+a:Yoru,t:GIANTX,1,Agent,Team
+a:Yoru,t:Guangzhou Huadu Bilibili Gaming(Bilibili Gaming),1,Agent,Team
+a:Yoru,t:MIBR,2,Agent,Team
+a:Yoru,t:NRG,4,Agent,Team
+a:Yoru,t:Paper Rex,14,Agent,Team
+a:Yoru,t:Rex Regum Qeon,2,Agent,Team
+a:Yoru,t:T1,5,Agent,Team
+a:Yoru,t:Team Heretics,8,Agent,Team
+a:Yoru,t:Team Liquid,2,Agent,Team
+a:Yoru,t:Xi Lai Gaming,2,Agent,Team
