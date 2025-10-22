@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Google Search Interest Trend for NRG over Time",
+  "width": "container",
+  "height": 300,
+  "background": "transparent",
+  "data": {
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/multiTimeline%20(1).csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "toNumber(datum['NRG: (Worldwide)'])",
+      "as": "Interest"
+    },
+    {
+      "calculate": "toDate(datum.Week)",
+      "as": "Date"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "stroke": "#FF4655",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Date",
+          "type": "temporal",
+          "title": "Date",
+          "axis": {"format": "%b %Y"}
+        },
+        "y": {
+          "field": "Interest",
+          "type": "quantitative",
+          "title": "Search Interest (0-100 Index)"
+        },
+        "tooltip": [
+          {"field": "Date", "type": "temporal", "title": "Week", "format": "%B %d, %Y"},
+          {"field": "Interest", "type": "quantitative", "title": "Interest"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [4, 4],
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {"datum": {"year": 2025, "month": 9, "date": 1}}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fill": "#ffffff",
+        "align": "right", 
+        "baseline": "bottom", 
+        "dx": -10,      
+        "dy": -20       
+      },
+      "encoding": {
+        "x": {"datum": {"year": 2025, "month": 9, "date": 1}},
+        "y": {"datum": 90}, 
+        "text": {
+          
+          "value": "Searches peak after NRG\ncrowned Champions\n(Sept 2025)"
+        }
+      }
+    }
+  ],
+  "config": {
+    "axis": {"labelColor": "white", "titleColor": "white", "gridColor": "#555"},
+    "legend": {"labelColor": "white", "titleColor": "white"},
+    "point": {"filled": true, "size": 50, "color": "#FF4655"},
+    "view": {"stroke": null}
+  }
+}
+
