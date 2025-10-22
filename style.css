@@ -122,6 +122,11 @@ html, body { margin: 0; padding: 0; }
   margin-bottom: 40px; /* Add space below the chart */
 }
 
+#related_queries_treemap {
+  width: 100%;
+  margin-bottom: 40px; /* Add space below the chart */
+}
+
 /* RADAR GRID — five across, wrap on small screens */
 .chart-row {
   display: grid;

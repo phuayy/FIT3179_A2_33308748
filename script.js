@@ -89,6 +89,10 @@ vegaEmbed("#player_radar_chart_container", vg_radar, {actions: false})
   })
   .catch(console.error);
 
-// NEW SPEC: Stacked Bar Chart for Multi-Kills
 var vg_nrg_google_trend = "./js/nrg_trends_google.json";
 vegaEmbed("#nrg_google_trends_line", vg_nrg_google_trend, {actions: false});
+
+var vg_related_queries_bar = "./js/bar_related_queries.json"; // Path to your treemap JSON
+vegaEmbed("#related_queries_bar", vg_related_queries_bar, {actions: false})
+  .then(res => console.log("Related queries bar loaded successfully"))
+  .catch(console.error);

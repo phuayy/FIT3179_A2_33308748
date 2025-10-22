@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Rising Google Search Queries related to NRG Valorant after VCT Champions 2025.",
+  "width": "container",
+  "height": 400,
+  "background": "transparent",
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/phuayy/FIT3179_A2_33308748/refs/heads/main/data/relatedQueries.csv",
+    "format": {"type": "csv"}
+  },
+
+  "transform": [
+    {"calculate": "isValid(datum['Search Growth']) ? toNumber(replace(datum['Search Growth'], '%', '')) : null", "as": "Growth"},
+    {"filter": "datum.Growth != null"},
+    {"calculate": "datum.RISING", "as": "Query"},
+    {"calculate": "test(datum.Query, 'brawk|skuba|mada|verno') ? 'Player' : test(datum.Query, 'vs|fnc') ? 'Matchup' : test(datum.Query, 'tenerife') ? 'Event Info' : 'Other'", "as": "Category"}
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "bar", "cornerRadiusEnd": 2, "color": "#FF4655"},
+      "encoding": {
+        "y": {"field": "Query", "type": "ordinal", "sort": "-x", "title": "Search Query", "axis": {"labelLimit": 200}},
+        "x": {"field": "Growth", "type": "quantitative", "title": "Search Growth (%)"},
+        "tooltip": [
+          {"field": "Query", "type": "ordinal"},
+          {"field": "Category", "type": "nominal"},
+          {"field": "Growth", "type": "quantitative", "format": ",.0f", "title": "Growth (%)"}
+        ]
+      }
+    },
+
+    {
+    "mark": {
+        "type": "rect",
+        "color": "#FF4655",
+        "opacity": 0.15,
+        "cornerRadius": 6
+    },
+    "encoding": {
+        "x":   { "aggregate": "max", "field": "Growth" },
+        "xOffset":  { "value": -410 },
+        "x2":  { "aggregate": "max", "field": "Growth" },
+        "x2Offset": { "value": -20 },
+        "y":   { "value": 300 },
+        "y2":  { "value": 345 }
+    }
+    },
+
+
+    {
+    "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "fontSize": 12,
+        "fontWeight": "600",
+        "fill": "#FFECEF",
+        "lineBreak": "\n"
+    },
+    "encoding": {
+        "x": { "aggregate": "max", "field": "Growth" },
+        "xOffset": { "value": -30 },
+        "y": { "value": 320 },
+        "text": {
+        "value": "Following NRG's victory at VCT Champions 2025, public interest\nespecially in its players and matchups—surged."
+        }
+        }
+    }
+  ],
+
+  "config": {
+    "axis": {"labelColor": "white", "titleColor": "white", "gridColor": "#555"},
+    "legend": {"labelColor": "white", "titleColor": "white"},
+    "view": {"stroke": null}
+  }
+}
